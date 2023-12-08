@@ -1,0 +1,156 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap");
+
+:root {
+  --dark-blue: #293264;
+  --background-grey: #f5f7fb;
+  --white: #ffffff;
+  --cta-blue: #4d5b9e;
+  --hover-yellow: #fffad1;
+  --border-grey: #dbdef0;
+  --border-answer: #4d5b9e;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Karla", sans-serif;
+  background-color: var(--background-grey);
+  color: var(--dark-blue);
+}
+
+/* START PAGE */
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100dvh;
+}
+
+h1 {
+  letter-spacing: 1px;
+  margin-bottom: 1.5em;
+}
+
+.subtitle {
+  font-family: "Inter", sans-serif;
+  max-width: 300px;
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 1.5em;
+  letter-spacing: 1px;
+}
+
+.cta-btn {
+  background-color: var(--cta-blue);
+  color: var(--white);
+  font-weight: 300;
+  padding: 1em 3em;
+  border: none;
+  border-radius: 15px;
+  letter-spacing: 1px;
+  border: 2px solid transparent;
+  transition: 0.3s;
+  cursor: pointer;
+  width: 14em;
+  margin: 0 auto;
+}
+
+.cta-btn:hover {
+  background-color: var(--hover-yellow);
+  color: var(--cta-blue);
+  border: 2px solid var(--cta-blue);
+}
+
+/* QUIZ PAGE */
+.quiz-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  width: 85%;
+  font-family: "Karla", sans-serif;
+  max-width: 800px;
+}
+
+.answer-container {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  margin-top: 1.8em;
+  gap: 1.5em;
+}
+
+.answer {
+  border: 1px solid var(--border-answer);
+  border-radius: 8px;
+  padding: 0.3em 1em;
+  background-color: #fff;
+}
+
+.blue {
+  background-color: lightblue;
+}
+
+.green {
+  background-color: #94d7a2;
+}
+
+.pink {
+  background-color: #f8bcbc;
+}
+
+.divider {
+  border-top: 1px solid var(--border-grey);
+  margin: 2em 0;
+}
+
+.score-container {
+  display: flex;
+  align-items: center;
+}
+
+.score-tally {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #4d5b9e;
+}
+
+.blob {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  z-index: -1;
+}
+
+.yellow-blob {
+  top: 0;
+  right: 0;
+}
+
+.blue-blob {
+  bottom: 0;
+  left: 0;
+}
+
+@media (max-width: 425px) {
+  .answer-container,
+  .score-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  h3 {
+    text-align: center;
+  }
+
+  .score-tally {
+    margin-bottom: 1.5em;
+    text-align: center;
+  }
+}
