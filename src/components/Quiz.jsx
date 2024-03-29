@@ -148,9 +148,9 @@ export default function Quiz() {
         <h1 className="quiz-title">Loading...</h1>
       ) : (
         <>
-          <h1 className="quiz-title">
+          <h2 className="quiz-title">
             {result ? "Quiz Answers" : "Quiz Questions"}
-          </h1>
+          </h2>
           {trivia.map((item, index) => (
             <div key={index}>
               <h3>{he.decode(item.question)}</h3>

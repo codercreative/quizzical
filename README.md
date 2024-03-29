@@ -25,6 +25,39 @@ This is a React web application trivia game. It is the final solo project as par
 - Display a play again button
 - Add yellow and blue "blobs" to the background
 
+### Challenges:
+
+#### Had a problem viewing all the questions and answers in mobile view. I removed the `height: 100vh` in main.
+
+#### I needed the h1 to be placed further down on the start page and then a bit higher on the quiz and answer interfaces, so I changed the h1 to h2 on for the quiz / answer interfaces
+
+#### I had to make sure that the answers from the API didn't appear at the end every time. It is necessary to randomize the placement of the answers for it to be a true game 😅
+
+```js
+// UseEffect hook fetching trivia questions from the opentdb.com API
+React.useEffect(() => {
+  fetch("https://opentdb.com/api.php?amount=5")
+    .then((res) => res.json())
+    .then((data) => {
+      const triviaWithShuffledAnswers = data.results.map((question) => ({
+        ...question,
+        answers: shuffleAnswers(
+          question.incorrect_answers,
+          question.correct_answer
+        ),
+      }));
+      setTrivia(triviaWithShuffledAnswers);
+      setLoading(false);
+    });
+}, []);
+
+//Function to shuffle correct and incorrect answers to provide randomized answer choices
+function shuffleAnswers(incorrect, correct) {
+  const allAnswers = [...incorrect, correct];
+  return allAnswers.sort(() => Math.random() - 0.5);
+}
+```
+
 ### Resources:
 
 Building a simple Quiz App:
